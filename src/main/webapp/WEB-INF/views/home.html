@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List Person</h1>
+<a href="/add"> Add new Person</a>
+<table border="10" cellpadding="20" cellspacing="10">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Singer</th>
+    <th>Category</th>
+    <th>Audio</th>
+    <th colspan="2">Action</th>
+  </tr>
+  <tr th:each="s:${songs}">
+    <td th:text="${s.id}"></td>
+    <td th:text="${s.name}"></td>
+    <td th:text="${s.singer}"></td>
+    <td th:text="${s.category}"></td>
+    <td><audio th:src="@{|/upload/${s.file_url}|}" controls/></td>
+    <td><a th:href="@{|/edit/${s.id}|}">Edit</a></td>
+    <td><a th:href="@{|/delete/${s.id}|}">Delete</a></td>
+  </tr>
+</table>
+</body>
+</html>
